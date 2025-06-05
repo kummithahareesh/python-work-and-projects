@@ -1,0 +1,23 @@
+# GUESSING THE NUMBER GAME USING THE RANDOM MODUELE USING
+import random
+number=random.randint(1,100)
+print("the random number are ", number)
+attempt=0
+high=100
+low=0
+
+while True:
+    guess=random.randint(low,high)
+    if guess<1 or guess>100:
+        print("Invalid value")
+        continue
+    attempt += 1
+    if guess ==number:
+            print(f"The number are gussed, in no of attemts {attempt} and {number}=",guess)
+            break
+    elif guess>number:
+        print("The guess number are the grater one:",guess)
+        high-=1
+    else:
+        print('The number are guessed are the low value:',guess)
+        low+=1
