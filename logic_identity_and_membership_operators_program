@@ -1,0 +1,62 @@
+from textwrap import indent
+import operator
+#using the class and the function working on the logical operatores and along with the idnety and memebrship operator
+#identy operator are :-is , is not
+#membership operators are:-in,not in
+
+class Operator:
+  def __init__(self,a,b):
+    self.a=a
+    self.b=b
+  def logical(self):
+    print("Performing the AND operation")
+    if(self.a%2==0 and self.b%2==0):
+      print(f"{self.a} is even and {self.b} are also be an even number")
+    else:
+      print("The logical operator are not satisfied the codition")
+    print()
+    print("performing the OR operation")
+    if(self.a%2==0 or self.b%2!=0):
+      print(f"condtion are satisfied:")
+      if self.a%2==0:
+        print(f"{self.a} This condtion are satisfied")
+      else:
+        print(f"{self.b} This condtion are satisfied")   
+    else:
+      print("The logical operator are not condtion are satisfied")
+    print()
+    print("Performing the  not  operations")
+    
+    if self.a is not self.b:
+      print(f"{self.a} is not equal to {self.b}")
+    else:
+      print(f"{self.a} is equal to {self.b}")
+      print()
+    #===========================Membership operator=========================#
+      print("Membership operator")
+  def membership_operator(self,make_list):
+    print("It are using for the an element are in the list of an a another variable to find on it")
+    if self.a and self.b in make_list:
+      print(f"{self.a} and {self.b} are will be in the list")
+    else:
+      print(f"{self.a} and {self.b} are not in the list")
+      print()
+    #===========Alternative way for the membership operator===================#
+    print("alternative usig the solution are below")
+    print("Solution for the alternative one:",operator.contains(make_list,self.a and self.b))
+    print()
+  def identity_operator(self,s1,s2):
+    if s1 is s2:
+     print("It are using for the identify the varible same data types")
+    else:
+      print("It is are not the same data type")
+
+  
+
+solution=Operator(11,21)
+solution.logical()
+make_list=[1,2,3,4,5,6,7,8,9]
+solution.membership_operator(make_list)
+s1=[1,2,3,4]
+s2=[5,6,7,8]
+solution.identity_operator(s1,s2)
