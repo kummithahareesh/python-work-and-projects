@@ -1,0 +1,41 @@
+class Calculator:
+    def __init__(self):
+        self.result = 0
+
+    def option(self):
+        try:
+            a = int(input("Enter the first input value: "))
+            b = int(input("Enter the second input value: "))
+
+            print("Select an option:")
+            print("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division")
+            choice = int(input("Enter your choice (1-4): "))
+
+            if choice == 1:
+                self.result = a + b
+            elif choice == 2:
+                self.result = a - b
+            elif choice == 3:
+                self.result = a * b
+            elif choice == 4:
+                if b != 0:
+                    self.result = a / b
+                else:
+                    print("Cannot divide by zero.")
+                    return
+            else:
+                print("Invalid choice.")
+                return
+
+            print("Result:", self.result)
+
+            again = input("Do you want to continue? (y/n): ")
+            if again.lower() == "y":
+                self.option()
+        except ValueError:
+            print("Invalid input! Please enter numeric values.")
+
+
+if __name__ == "__main__":
+    cal = Calculator()
+    cal.option()
