@@ -1,0 +1,26 @@
+import pandas as pd
+
+customer_details = pd.DataFrame({
+    'cust_name': ['Hareesh', 'Harish', 'jenny', 'lisa', 'rose', 'jisso'],
+    'order_id': ['001', '002', '003', '004', '005', '006']
+})
+
+transaction_details = pd.DataFrame({
+    'order_id': ['001', '002', '003', '004', '005', '006'],
+    'amount': [10000, 25000, 30000, 40000, 50000, 60000]
+})
+
+print("Both data frame details")
+print("Customer Details")
+print(customer_details)
+print()
+print("Transaction Details")
+print(transaction_details)
+print()
+print("Merge the data using the both data frame using")
+df_merged=pd.merge(customer_details,transaction_details,on='order_id',how='inner')
+print(df_merged)
+print()
+max_amount = df_merged['amount'].max()
+top_customer = df_merged[df_merged['amount'] == max_amount]['cust_name'].values
+print(f"Customer with the highest order amount ({max_amount}) is/are: {', '.join(top_customer)}")
